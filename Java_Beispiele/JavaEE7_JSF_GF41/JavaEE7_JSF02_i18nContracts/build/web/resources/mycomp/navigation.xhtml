@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+  <!-- INTERFACE -->
+  <cc:interface>
+  </cc:interface>
+
+  <!-- IMPLEMENTATION -->
+  <cc:implementation>
+    <nav>
+      <ul>
+        <li><h:link outcome="seite1" value="#{view.viewId}" class="#{(view.viewId == '/seite1.xhtml')? 'selected': ''}" /></li>
+        <li><h:link outcome="seite2" value="seite2" class="#{(view.viewId == '/seite2.xhtml')? 'selected': ''}" /></li>
+        <li><h:link outcome="seite3" value="seite3" class="#{(view.viewId == '/seite3.xhtml')? 'selected': ''}" /></li>
+      </ul>
+    </nav>
+  </cc:implementation>
+</html>

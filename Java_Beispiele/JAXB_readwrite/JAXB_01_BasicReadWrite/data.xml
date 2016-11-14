@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:data xmlns:ns2="org.meins.java.jaxb">
+    <items>
+        <item>
+            <value>Erstes</value>
+        </item>
+        <item>
+            <value>Zweites</value>
+        </item>
+    </items>
+    <ID>1</ID>
+    <name>Mein Name</name>
+</ns2:data>

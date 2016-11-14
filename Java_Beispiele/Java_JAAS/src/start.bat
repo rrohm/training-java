@@ -1,0 +1,1 @@
+java -Djava.security.auth.login.config==jaas_config org.meins.sicherheit.Auth

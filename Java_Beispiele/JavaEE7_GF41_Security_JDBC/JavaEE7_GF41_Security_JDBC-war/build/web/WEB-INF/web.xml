@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	 version="3.1">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    
+    
+    <security-constraint>
+        <display-name>Secured Area</display-name>
+        <web-resource-collection>
+            <web-resource-name>secure</web-resource-name>
+            <description/>
+            <url-pattern>/secure/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Admins only</description>
+            <role-name>admins</role-name>
+            <role-name>users</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <!--<realm-name>file</realm-name>-->
+        <realm-name>postgresRealm</realm-name>
+        
+        <form-login-config>
+            <form-login-page>/login.html</form-login-page>
+            <form-error-page>/login-error.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    
+    <security-role>
+        <description/>
+        <role-name>admins</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>users</role-name>
+    </security-role>
+    
+</web-app>

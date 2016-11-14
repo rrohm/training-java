@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/libs/jquery/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" >
+
+      $(document).ready(function () {
+        $("#btSendData").click(function () {
+
+          var files = $('#datei').get(0).files;
+          console.log(files)
+          var fileReader = new FileReader();
+          fileReader.onload = function(event){
+            console.log('onload file: ', event);
+
+
+            var data = {data: eval('([' + event.target.result + '])')};
+
+            $.ajax({
+              url: 'webresources/generic/data',
+              type: 'POST',
+              dataType: 'json',
+              data: JSON.stringify(data),
+              contentType: 'application/json',
+              beforeSend: function(){
+                $('#ergebnis').text('... ');
+              },
+              success: function(data){
+                console.log(data);
+                $('#ergebnis').text(JSON.stringify(data));
+              },
+              error: function(){
+                for (var item in arguments) {
+                  console.log(item, arguments[item]);
+                }
+              }
+            });
+          };
+          fileReader.readAsText(files[0]);
+
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>Bitte Datei auswählen</div>
+    <input type="file" id="datei" />
+    <button id="btSendData">Senden</button>
+
+    <pre id="ergebnis"></pre>
+  </body>
+</html>

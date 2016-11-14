@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:head>
+    <title>Features: Auswahllisten</title>
+    <h:outputStylesheet name="styles.css" />
+  </h:head>
+  <h:body>
+    <h1>Features: Auswahllisten</h1>
+
+    <p>Dieses Beispiel illustriert den Einsatz von Auswahl-Elementen - an einem
+      bereits etwas erweiterten Szenario: Sobald nicht nur z.B. zwischen 
+      String-Werten sondern zwischen Objekten gewählt werden soll, ist ein 
+      Konverter erforderlich.
+    </p>
+
+    <h:form>
+      <fieldset>
+        <legend>Einzel-Auswahl</legend>
+
+        <h:outputLabel for="selectOneMenu" value="Menü-Auswahl (selectOneMenu)" />
+        <br/>
+        <h:selectOneMenu value="#{auswahllistenBean.selectedPerson1}" 
+                         id="selectOneMenu"
+                         converter="#{personenlisteBean.converter}"
+                         >
+          <f:selectItem noSelectionOption="true" itemDisabled="true" 
+                        itemLabel="(Bitte wählen)"/>
+          <f:selectItems value="#{personenlisteBean.personenListe}"
+                         var="person"
+                         itemLabel="#{person.firstName }" />
+        </h:selectOneMenu>
+
+        <br/>
+        <h:outputLabel for="selectOneListbox" value="Listen-Auswahl (selectOneListbox)" />
+        <br/>
+        <h:selectOneListbox value="#{auswahllistenBean.selectedPerson2}" id="selectOneListbox" 
+                            converter="#{personenlisteBean.converter}"
+                            >
+          <f:selectItem noSelectionOption="true" itemDisabled="true" 
+                        itemLabel="(Bitte wählen)"/>
+          <f:selectItems value="#{personenlisteBean.personenListe}"
+                         var="person"
+                         itemLabel="#{person.firstName }" />
+        </h:selectOneListbox>
+
+        <br/>
+        <h:commandButton value="absenden" />
+      </fieldset>
+    </h:form>
+
+    <h:form>
+      <h:commandLink value="zurück" action="home" />
+    </h:form>
+  </h:body>
+</html>
+

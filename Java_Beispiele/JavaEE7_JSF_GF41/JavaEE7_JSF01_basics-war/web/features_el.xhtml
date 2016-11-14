@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <h:head>
+    <title>Features: Unified Expression Language (EL)</title>
+    <h:outputStylesheet name="styles.css" />
+  </h:head>
+  <h:body>
+    <h1>Features: Unified Expression Language (EL)</h1>
+    <h2>Überblick</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Anwendung</th>
+          <th>Kommentar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>value="\#{user.username}"</td>
+          <td>Bindung eines Komponenten-Attributs an eine Eigenschaft einer Managed Bean.</td>
+        </tr>
+        <tr>
+          <td>rendered="\#{user.username != null}"</td>
+          <td>Bindung eines Komponenten-Attributs an einen booleschen Ausdruck</td>
+        </tr>
+        <tr>
+          <td>value="\#{basket.sum * 19,00}"</td>
+          <td>Bindung an einen arithmetischen Ausdruck</td>
+        </tr>
+        <tr>
+          <td>style="\#{grid.displayed ? 'display:inline;' : 'display:none;'}"</td>
+          <td>Attribut-Wertzuweisung mit ternärem Operator.</td>
+        </tr>
+        <tr>
+          <td>value=" Hallo Benutzer \#{user.username}"</td>
+          <td>Unified-EL-Ausdruck in einer Zeichenkette</td>
+        </tr>
+        <tr>
+          <td>action="\#{user.storeUser}"</td>
+          <td>Aufruf der Bean-Methode über eine Method Expression</td>
+        </tr>
+        <tr>
+          <td>value="\#{mapBean['index']}"</td>
+          <td>Zugriff auf Map-Elemente sowie auf Bean-Eigenschaften mit Array-Notation.</td>
+        </tr>
+        <tr>
+          <td>value="\#{mapBean[user.username]}"</td>
+          <td>Indirekter Zugriff auf ein Map-Element mittels Value Expression.</td>
+        </tr>
+        <tr>
+          <td>value="\#{listBean[5]}"</td>
+          <td>Zugriff auf List-Elemente mit Array-Notation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Implizite Objekte in der EL</h2>
+    <p>Folgende Objekte sind im Gültigkeitsbereich der EL-Auswertung 
+      standardmäßig verfügbar: 
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Objekt</th>
+          <th>Funktion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>requestScope</td>
+          <td>Referenz auf die Request-Map des External-Contexts.</td>
+        </tr>
+        <tr>
+          <td>viewScope</td>
+          <td>Referenz auf die View-Map des View-Roots . </td>
+        </tr>
+        <tr>
+          <td>sessionScope</td>
+          <td>Referenz  auf die Session-Map des External-Contexts. </td>
+        </tr>
+        <tr>
+          <td>applicationScope</td>
+          <td>Referenz  auf die Application-Map des External-Contexts.  </td>
+        </tr>
+        <tr>
+          <td>view</td>
+          <td>Referenz auf den View-Root. </td>
+        </tr>
+        <tr>
+          <td>param</td>
+          <td>Referenz  auf die Request-Parameter-Map des External-Contexts. </td>
+        </tr>
+        <tr>
+          <td>paramValues</td>
+          <td>Referenz auf die Request-Parameter-Values-Map des External-Contexts.</td>
+        </tr>
+        <tr>
+          <td>header</td>
+          <td>Referenz auf die Request-Header-Map des External-Contexts.</td>
+        </tr>
+        <tr>
+          <td>headerValues</td>
+          <td>Referenz  auf die Request-Header-Values-Map des External-Contexts.</td>
+        </tr>
+        <tr>
+          <td>facesContext</td>
+          <td>Referenz auf den Faces-Context </td>
+        </tr>
+        <tr>
+          <td>initParam</td>
+          <td>Referenz auf die Init-Parameter-Map des External-Contexts und damit auf Kontextparameter der Webapplikation. </td>
+        </tr>
+        <tr>
+          <td>cookie</td>
+          <td>Referenz auf die Request-Cookie-Map des External-Contexts. </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h:form>
+      <h:commandLink value="zurück" action="home" />
+    </h:form>
+  </h:body>
+</html>
+

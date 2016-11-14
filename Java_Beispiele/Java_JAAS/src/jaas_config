@@ -1,0 +1,3 @@
+Meins {
+   org.meins.sicherheit.SampleLoginModule required debug=true;
+};

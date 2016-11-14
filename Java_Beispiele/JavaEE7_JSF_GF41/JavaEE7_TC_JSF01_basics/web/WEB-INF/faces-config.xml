@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+  
+  <application>
+    <locale-config>
+      <default-locale>de</default-locale>
+      <supported-locale>en</supported-locale>
+    </locale-config>  
+    <resource-bundle>
+      <base-name>org.meins.javaee.jsf.bundles.myText</base-name>
+      <var>myText</var>
+    </resource-bundle>
+    <message-bundle>org.meins.javaee.jsf.bundles.myMessages</message-bundle>
+  </application>
+  
+  
+  <!--Einsatz von Phase-Listenern-->
+  <lifecycle>
+    <phase-listener>
+      org.meins.javaee.jsf.listener.DebugPhaseListener
+    </phase-listener>
+    <phase-listener>
+      org.meins.javaee.jsf.listener.ParameterPhaseListener
+    </phase-listener>
+  </lifecycle>
+  
+  <!--Wildcard, z.B. Rücksprung aus allen Seiten--> 
+  <navigation-rule>
+    <from-view-id>*</from-view-id>
+    <navigation-case>
+      <from-outcome>home</from-outcome>
+      <to-view-id>index.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+</faces-config>

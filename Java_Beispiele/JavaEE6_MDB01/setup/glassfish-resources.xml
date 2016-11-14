@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+  <admin-object-resource enabled="true" 
+                         jndi-name="jms/irgendeinTopic"  
+                         res-type="javax.jms.Topic"  
+                         res-adapter="jmsra">
+    <property name="Name" value="PhysicalTopic"/>
+  </admin-object-resource>
+  <connector-connection-pool 
+      name="jms/irgendeinTopicFactoryPool"  
+      connection-definition-name="javax.jms.TopicConnectionFactory"  
+      resource-adapter-name="jmsra"/>
+  <connector-resource 
+      enabled="true" 
+      jndi-name="jms/irgendeinTopicFactory" 
+      pool-name="jms/irgendeinTopicFactoryPool"  />
+  
+  <admin-object-resource enabled="true" 
+                         jndi-name="jms/meineQueue"  
+                         res-type="javax.jms.Queue"  
+                         res-adapter="jmsra">
+    <property name="Name" value="PhysicalTopic"/>
+  </admin-object-resource>
+  <connector-connection-pool 
+      name="jms/meineQueueFactoryPool"  
+      connection-definition-name="javax.jms.QueueConnectionFactory"  
+      resource-adapter-name="jmsra"/>
+  <connector-resource 
+      enabled="true" 
+      jndi-name="jms/meineQueueFactory" 
+      pool-name="jms/meineQueueFactoryPool"  />
+</resources>

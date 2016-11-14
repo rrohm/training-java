@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <f:view locale="de">
+    
+    <h:head>
+      <title>Features: Internationalisierung</title>
+      <h:outputStylesheet name="styles.css" />
+    </h:head>
+    <h:body>
+      <h1><h:outputText value="#{myText.title_i18n}"/></h1>
+
+      <p>Für die Internationalisierung der Anwendung gibt es eine Reihe 
+        unterschiedlicher Ansatzpunkte: 
+      </p>
+
+      <ol>
+        <li>Konfiguration von <code>message-bundle</code> und <code>resource-bundle</code>
+          in der <code>faces-config.xml</code>
+        </li>
+        <li>Konfiguration von unterstützten Lokalisierungen und Standard-Locale
+          in der <code>faces-config.xml</code>
+        </li>
+        <li>Definition der Locale in &lt;f:view locale="..."&gt;</li>
+        <li>Definitions eines <code>ValidationMessages.properties</code>-
+          Bundles für die Internationalisierung der Bean Validation Messages.
+        </li>
+      </ol>
+
+      <h:form>
+        <fieldset>
+          <legend>Formular mit Standard-Validierung</legend>
+
+          <h:inputText id="in1" value="#{validierungBean.stringWert}" 
+                       validatorMessage="Bitte überprüfen Sie Ihre Eingabe">
+            <f:validateRequired />
+            <f:validateLength minimum="3" maximum="6"/>
+            <f:validateRegex pattern="[A-Z][a-zA-Z]*"/>
+          </h:inputText>
+          <br/>
+          <!--<h:message for="in1" />-->
+          <h:messages for="in1" />
+
+          <br/>
+          <h:commandButton value="absenden" />
+          <h:commandButton value="zurücksetzen" >
+            <!--<f:resetValues render="form:in1"/>-->
+          </h:commandButton>
+        </fieldset>
+      </h:form>
+
+      <h:form>
+        <fieldset>
+          <legend>Formular mit Bean Validation</legend>
+          <h:outputText value="vorname"></h:outputText>
+          <h:inputText value="#{validierungJSR303Bean.stringWert}" />
+          <h:commandButton value="absenden" />
+        </fieldset>
+      </h:form>
+ 
+      <h:form>
+        <h:commandLink value="zurück" action="home" />
+      </h:form>
+    </h:body>
+  </f:view>
+</html>
+

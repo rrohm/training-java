@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <h:head>
+    <title>Facelet Title</title>
+  </h:head>
+  <h:body>
+    <h1>Expression Language (EL)</h1>
+    <h2>Auswertung von Ausdrücken</h2>
+    <ol>
+      <li><strong>immediate</strong>: <code>\${sessionBean.getPerson().name}</code>: ${sessionBean.getPerson().name}</li>
+      <li><strong>deferred</strong>: <code>\#{sessionBean.getPerson().name}</code>: #{sessionBean.getPerson().name}</li>
+    </ol>
+    <h2>Ausdrücken</h2>
+    <ol>
+      <li><strong>Eigenschaften</strong>: <code>\${sessionBean.getPerson().name}</code>: ${sessionBean.getPerson().name}</li>
+      <li><strong>Eigenschaften</strong>: <code>\${sessionBean.getPerson()["name"]}</code>: ${sessionBean.getPerson()["name"]}</li>
+      <li><strong>Methoden</strong>: <code>\${sessionBean.getPerson()}</code>: ${sessionBean.getPerson()}</li>
+      <li><strong>Logische Ausdrücke</strong>: <code>\#{sessionBean.getPerson().adressen.size() == 3}</code>: #{sessionBean.getPerson().adressen.size() == 3}</li>
+      <li><strong>Arithmetische Ausdrücke</strong>: <code>\#{300 + 30 + 3}</code>: #{300 + 30 + 3}</li>
+      <li><strong></strong>: <code></code>: </li>
+    </ol>
+  </h:body>
+</html>
+

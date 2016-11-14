@@ -1,0 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24.09.2015, 19:20:12
+    Author     : Robert Rohm&lt;r.rohm@aeonium-systems.de&gt;
+*/
+
+nav a {
+  font-weight: normal;
+}
+nav .selected {
+  color: #fc3;
+}

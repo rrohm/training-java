@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
+  <enterprise-beans>
+    <ejb>
+      <ejb-name>NewSessionBean</ejb-name>
+      <resource-ref>
+        <res-ref-name>jms/meineQueueFactory</res-ref-name>
+        <jndi-name>jms/meineQueueFactory</jndi-name>
+      </resource-ref>
+      <message-destination-ref>
+        <message-destination-ref-name>jms/meineQueue</message-destination-ref-name>
+        <jndi-name>jms/meineQueue</jndi-name>
+      </message-destination-ref>
+    </ejb>
+    
+    <ejb>
+      <ejb-name>JMSAufruferBean</ejb-name>
+      <resource-ref>
+        <res-ref-name>jms/meineFactoy01</res-ref-name>
+        <jndi-name>jms/meineFactoy01</jndi-name>
+      </resource-ref>
+      <message-destination-ref>
+        <message-destination-ref-name>jms/meineQueue</message-destination-ref-name>
+        <jndi-name>jms/meineQueue</jndi-name>
+      </message-destination-ref>
+    </ejb>
+  </enterprise-beans>
+</glassfish-ejb-jar>

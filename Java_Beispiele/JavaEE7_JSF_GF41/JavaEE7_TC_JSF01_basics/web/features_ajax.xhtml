@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:head>
+    <title>Features: AJAX</title>
+    <h:outputStylesheet name="styles.css" />
+  </h:head>
+  <h:body>
+    <h1>Features: AJAX</h1>
+
+
+    <h:form>
+      <fieldset>
+        <legend>Formular mit Standard-Validierung</legend>
+
+        <h:inputText id="in1" value="#{ajaxBean.stringWert}" 
+                     validatorMessage="Bitte überprüfen Sie Ihre Eingabe">
+          <!--          <f:validateRequired />
+                    <f:validateLength minimum="3" maximum="6"/>
+                    <f:validateRegex pattern="[A-Z][a-zA-Z]*"/>-->
+          <f:ajax render="msgIn1" event="keydown" />
+        </h:inputText>
+        <br/>
+        <!--<h:message for="in1" />-->
+        <h:messages for="in1" id="msgIn1" />
+
+        <br/>
+        <h:commandButton value="absenden" />
+        <h:commandButton value="zurücksetzen" >
+          <!--<f:resetValues render="form:in1"/>-->
+        </h:commandButton>
+      </fieldset>
+    </h:form>
+
+
+    <h:form>
+      <h:commandLink value="zurück" action="home" />
+    </h:form>
+  </h:body>
+</html>
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ This code is released under Creative Commons Attribution 4.0 International
+ (CC BY 4.0) license, http://creativecommons.org/licenses/by/4.0/legalcode .
+ That means:
+
+ You are free to:
+
+     Share — copy and redistribute the material in any medium or format
+     Adapt — remix, transform, and build upon the material
+              for any purpose, even commercially.
+
+     The licensor cannot revoke these freedoms as long as you follow the
+     license terms.
+
+ Under the following terms:
+
+     Attribution — You must give appropriate credit, provide a link to the
+     license, and indicate if changes were made. You may do so in any
+     reasonable manner, but not in any way that suggests the licensor endorses
+     you or your use.
+
+ No additional restrictions — You may not apply legal terms or technological
+ measures that legally restrict others from doing anything the license
+ permits.
+
+
+ 2015 Aeonium Software Systems, Robert Rohm.
+-->
+
+
+<Configuration monitorInterval="5"  status="warn" strict="true" >
+
+  <Appenders>
+    <Appender type="Console" name="STDOUT">
+      <ThresholdFilter level="WARN" onMatch="ACCEPT"/>
+      <PatternLayout>
+        <pattern>%d %highlight{%p} %style{%C{1.} [%t] %m}{bold,green}%n</pattern>
+      </PatternLayout>
+    </Appender>
+
+    <Appender type="Console" name="STDOUT2">
+      <Filters>
+        <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="ACCEPT"/>
+      </Filters>
+      <PatternLayout pattern="%C{1}.%M %m %ex%n"/>
+    </Appender>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="org.meins.logging.log4j2_00_basic.Anwendung" level="debug" additivity="false">
+
+      <AppenderRef ref="STDOUT"/>
+      <AppenderRef ref="STDOUT2"/>
+    </Logger>
+    <Root level="warn" additivity="false">
+      <AppenderRef ref="STDOUT2"/>
+    </Root>
+  </Loggers>
+
+</Configuration>

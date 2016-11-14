@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+  <h:head>
+    <title>LOGIN-Seite</title>
+  </h:head>
+  <h:body>
+    <h1>LOGIN-Seite</h1>
+    <h2>Bitte anmelden:</h2>
+
+    <form method="post" action="j_security_check">
+
+      <table columns="2" role="presentation">
+        <tr>
+          <th><h:outputLabel for="j_username" value="Please type your user name:"/></th>
+          <td><h:inputText id="j_username" autocomplete="off" size="20" /></td>
+        </tr>
+        <tr>
+          <th><h:outputLabel for="j_password" value="Please type your password:"/></th>
+          <td><h:inputSecret id="j_password" autocomplete="off" size="20"/></td>
+        </tr>
+      </table>
+      <p>
+        <h:commandButton type="submit" value="Submit"/>
+        &nbsp;
+        <h:commandButton type="reset" value="Reset"/>
+      </p>
+    </form>
+  </h:body>
+</html>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application version="7" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd">
+  <display-name>JavaEE7_GF41-ear</display-name>
+  <module>
+    <ejb>JavaEE7_GF41-ejb.jar</ejb>
+  </module>
+  <module>
+    <ejb>JavaEE7_GF41_ServiceClients-ejb.jar</ejb>
+  </module>
+</application>

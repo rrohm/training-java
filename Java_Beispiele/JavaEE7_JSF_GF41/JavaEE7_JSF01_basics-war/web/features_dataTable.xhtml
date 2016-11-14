@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:head>
+    <title>Features: Tabellarische Daten</title>
+    <h:outputStylesheet name="styles.css" />
+  </h:head>
+  <h:body>
+    <h1>Features: Tabellarische Daten</h1>
+    <h2>Überblick</h2>
+
+    <ul>
+      <li></li>
+      
+    </ul>
+ 
+    <h:dataTable value="#{personenlisteBean.personenListe}"
+                 var="person"
+                 rowClasses="even,odd">
+      <f:facet name="header">Personenliste</f:facet>
+      
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Vorname" />
+        </f:facet>
+        <h:outputText value="#{person.firstName}" />
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Nachname" />
+        </f:facet>
+        <h:outputText value="#{person.lastName}" />
+      </h:column>
+      
+      <f:facet name="footer">Tabelle 1: Alle Personen</f:facet>
+    </h:dataTable>
+    
+    <h:form>
+      <h:commandLink value="zurück" action="home" />
+    </h:form>
+  </h:body>
+</html>
+

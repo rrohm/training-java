@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Nov 13 01:06:40 CET 2013:
+Booten von Derby Version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): Instanz a816c00e-0142-4ec8-024d-000000b97710
+für Datenbankverzeichnis R:\AEONIUM\WORK-ONLINE\aeJavaTraining\work\JavaDB\test   mit Klassenladeprogrammn sun.misc.Launcher$AppClassLoader@1a7bf11
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_45-b18
+user.dir=R:\AEONIUM\WORK-ONLINE\aeJavaTraining\work\JavaDB
+os.name=Windows 7
+os.arch=x86
+os.version=6.1
+derby.system.home=null
+Das Ladeprogramm für Datenbankklassen wurde gestartet - derby.database.classpath=''

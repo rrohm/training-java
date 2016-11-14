@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div>
+    </div>
+
+    <h1>Tips zur RMI-Administration</h1>
+
+    <h2>RMI-Kommunikation monitoren</h2>
+    <p>Die RMI-Kommuniktion kann gut mit Netzwerk-Monitoring-Tools überwacht 
+      werden, v.a. wenn der Dienst auf einem entfernten System läuft. Wireshark 
+      ist ein mögliches Tool. </p>
+    
+    <h3>Überwachung mit Wireshark</h3>
+    <p>Das Vorgehen könnte so aussehen: </p>
+    <ol>
+      <li>Hardware-Adresse des Client-Systems auslesen, z.B. mit ipconfig</li>
+      <li>Auf dem RMIServer-System Wireshark starten</li>
+      <li>Netzwerkschnitttelle auswählen und Überwachung starten</li>
+      <li>Paketfilter für den RMIClient definieren, z.B. eth.addr == 01:23:45:67:89:01</li>
+      <li></li>
+    </ol>
+    
+    <h2>RMIClient konfigurieren</h2>
+    <p>Beispiel-Aufruf: </p>
+    <pre>
+java -Dsun.rmi.transport.connectionTimeout=3000
+     -Djava.rmi.server.disableHttp=false 
+     -Dsun.rmi.transport.proxy.connectTimeout=5000 
+     -Dsun.rmi.transport.proxy.eagerHttpFallback
+     -Dsun.rmi.transport.tcp.handshakeTimeout=5000 
+     -Dsun.rmi.transport.tcp.responseTimeout=5000
+     -Dhttp.proxyHost=192.168.100.200 
+     -Dhttp.proxyPort=80 
+     -jar Java7_RMIClient.jar       
+    </pre>
+    
+    <h2>apache2 HTTP-Diesnt konfigurieren für Port-Tunneling</h2>
+    <ol>
+      <li>a2enmod proxy</li>
+      <li>a2enmod proxy_http</li>
+      <li>Prox-Konfiguration hinzufügen
+        <pre>
+ProxyPass            /   http://127.0.0.1:1099/
+ProxyPassReverse     /   http://127.0.0.1:1099/
+        </pre>        
+</li>
+      <li></li>
+    </ol>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!ELEMENT dataset (
+    persons*,
+    tasks*,
+    users*)>
+
+<!ELEMENT persons EMPTY>
+<!ATTLIST persons
+    id CDATA #IMPLIED
+    user_id CDATA #IMPLIED
+    firstname CDATA #IMPLIED
+    lastname CDATA #IMPLIED
+>
+
+<!ELEMENT tasks EMPTY>
+<!ATTLIST tasks
+    id CDATA #IMPLIED
+    title CDATA #IMPLIED
+    description CDATA #IMPLIED
+    assigned_to CDATA #IMPLIED
+    created_by CDATA #REQUIRED
+    done CDATA #IMPLIED
+>
+
+<!ELEMENT users EMPTY>
+<!ATTLIST users
+    id CDATA #IMPLIED
+    name CDATA #IMPLIED
+>
+

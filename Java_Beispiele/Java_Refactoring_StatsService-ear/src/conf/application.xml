@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application version="7" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd">
+  <display-name>Java_Refactoring_StatsService-ear</display-name>
+  <module>
+    <web>
+      <web-uri>Java_Refactoring_StatsService00.war</web-uri>
+      <context-root>/StatsService</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>Java_Refactoring_StatsService-war00.war</web-uri>
+      <context-root>/StatsService01</context-root>
+    </web>
+  </module>
+</application>

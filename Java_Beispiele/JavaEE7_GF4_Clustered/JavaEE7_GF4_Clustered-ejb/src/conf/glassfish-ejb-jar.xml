@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
+  <enterprise-beans>
+    <ejb availability-enabled="true">
+      <ejb-name>MeineSessionBean</ejb-name>
+      <checkpoint-at-end-of-method>
+        <method>
+          <method-name>getCount</method-name>
+        </method>
+      </checkpoint-at-end-of-method>
+      <checkpoint-at-end-of-method>
+        <method>
+          <method-name>zeigeInstanzInfo</method-name>
+        </method>
+      </checkpoint-at-end-of-method>
+    </ejb>
+  </enterprise-beans>
+</glassfish-ejb-jar>

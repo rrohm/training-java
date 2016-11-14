@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:head>
+    <title>Features: ValueChangeListener</title>
+    <h:outputStylesheet name="styles.css" />
+  </h:head>
+  <h:body>
+    <h1>Features: ValueChangeListener</h1>
+
+    <p>Dieses Beispiel illustriert den Einsatz eines ValueChangeListeners. Er
+      überwacht Änderungen z.B. in Auswahlisten. 
+    </p>
+    <p><strong>Wichtig! </strong>Die Verarbeitung erfolgt in JSF generell 
+      serverseitig, daher ist wird auch die (clientseitige!) Auswahl-Änderung
+      serverseitig verarbeitet. Hierfür ist zwingend ein HTTP-Event erforderlich,
+      d.h. das Absenden des JSF-Formulars. Dies erfolgt nicht automatisch. 
+      Daher muss das Absenden in diesem Fall mit JavaScript clientseitig selbst
+      getriggert werden. 
+    </p>
+    <p>Alternativ kann dieser Request zur Änderungsauswertung als AJAX-Request
+      abgesetzt werden. JSF bietet auch hierfür Unterstützung.
+    </p>
+
+    <h:form>
+      <fieldset>
+        <legend>Einzel-Auswahl</legend>
+
+        <h:outputLabel for="selectOneMenu" value="Menü-Auswahl (selectOneMenu)" />
+        <br/>
+        <h:selectOneMenu value="#{changeBean.auswahl1}" 
+                         id="selectOneMenu"
+                         onclick="this.form.submit()"
+                         immediate="true"
+                         valueChangeListener="#{changeBean.valueChanged}"
+                         >
+          <f:selectItem noSelectionOption="true" itemDisabled="true" 
+                        itemLabel="(Bitte wählen)"/>
+          <f:selectItems value="#{changeBean.werteListe}"
+                         var="t"
+                         itemLabel="#{t}" />
+        </h:selectOneMenu>
+
+        <br/>
+        <h:outputLabel for="selectOneListbox" value="Listen-Auswahl (selectOneListbox)" />
+        <br/>
+        <h:selectOneListbox value="#{changeBean.auswahl2}" id="selectOneListbox" 
+                            onclick="this.form.submit()"
+                            immediate="true"
+                            valueChangeListener="#{changeBean.valueChanged}"
+                            >
+          <f:selectItem noSelectionOption="true" itemDisabled="true" 
+                        itemLabel="(Bitte wählen)"/>
+          <f:selectItems value="#{changeBean.werteListe}"
+                         var="t"
+                         itemLabel="#{t}" />
+        </h:selectOneListbox>
+
+        <br/>
+        <h:commandButton value="absenden" />
+      </fieldset>
+    </h:form>
+
+    <p>Aktuelle Werte: </p>
+    <ol>
+      <li>Auswahl 1: <h:outputText value="#{changeBean.auswahl1}" /></li>
+      <li>Auswahl 2: <h:outputText value="#{changeBean.auswahl2}" /></li>
+    </ol>
+    
+    <h:form>
+      <h:commandLink value="zurück" action="home" />
+    </h:form>
+  </h:body>
+</html>
+

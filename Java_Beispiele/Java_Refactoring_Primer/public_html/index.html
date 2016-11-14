@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--
+
+ This code is released under Creative Commons Attribution 4.0 International
+ (CC BY 4.0) license, http://creativecommons.org/licenses/by/4.0/legalcode .
+ That means:
+
+ You are free to:
+
+     Share — copy and redistribute the material in any medium or format
+     Adapt — remix, transform, and build upon the material
+              for any purpose, even commercially.
+
+     The licensor cannot revoke these freedoms as long as you follow the
+     license terms.
+
+ Under the following terms:
+
+     Attribution — You must give appropriate credit, provide a link to the
+     license, and indicate if changes were made. You may do so in any
+     reasonable manner, but not in any way that suggests the licensor endorses
+     you or your use.
+
+ No additional restrictions — You may not apply legal terms or technological
+ measures that legally restrict others from doing anything the license
+ permits.
+
+ © 2014 Aeonium Software Systems, Robert Rohm.
+-->
+<html>
+  <head>
+    <title>Refactoring-Primer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/libs/jquery/jquery.js" type="text/javascript"></script>
+    <script src="js/libs/jqueryui/jquery-ui.js" type="text/javascript"></script>
+    <script src="js/libs/SyntaxHighlighter/scripts/shCore.js" type="text/javascript"></script>
+    <script src="js/libs/SyntaxHighlighter/scripts/shBrushJava.js" type="text/javascript"></script>
+    <link href="js/libs/SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css"/>
+    <link href="js/libs/SyntaxHighlighter/styles/shCoreDefault.css" rel="stylesheet" type="text/css"/>
+
+    <script src="js/libs/refactoring.js" type="text/javascript"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <h1>Refactoring</h1>
+    <h2>Übersicht</h2>
+    <h3>Methoden refaktorisieren</h3>
+    <ul>
+      <li><h4>Methoden extrahieren</h4>
+        <div>
+          <p class="wenn">Wenn ein Code-Fragment zusammengefasst und eventuell wiederverwertet
+            werden kann, ...</p>
+          <p class="dann">... eine neue Methode mit einem sprechenden Namen daraus erstellen.</p>
+        </div>
+      </li>
+      <li><h4>Methoden integrieren ("inlinen")</h4>
+        <div>
+          <p class="wenn">Wenn die aufgerufene Methode nur wenig Code enthält, wenig
+            Komplexität in sich birgt oder auf extreme  Performance optimiert
+            werden muss, ...</p>
+          <p class="dann">... Methodenaufruf durch den Code
+            der Methode ersetzen und gegebenenfalls die Methode entfernt.</p>
+        </div>
+      </li>
+      <li><h4>temporäre Variablen entfernen</h4>
+        <div>
+          <p class="wenn">Wenn eine temporäre Variable keinen Mehrwert an Klarheit
+            bringt oder andere Refactorings stört, ...</p>
+          <p class="dann">... temporäre Variable entfernen.</p>
+        </div>
+      </li>
+      <li><h4>temporäre Variablen einführen</h4>
+        <div>
+          <p class="wenn">Wenn ein komplexer Ausdruck (gegebenenfalls mehrfach!)
+            benötigt wird, ...</p>
+          <p class="dann">... temporäre Variable mit sprechenden Namen einführen.</p>
+        </div>
+      </li>
+      <li><h4>Algorithmen neu implementieren</h4>
+        <div>
+          <p class="wenn">Wenn ein Algorithmus unübersichtlich oder schwer testbar
+            implementiert ist, ...</p>
+          <p class="dann">... den Körper der Methode durch eine bessere
+            Implementierung ersetzen - und eventuell weitere (nach außen nicht
+            sichtbare!) Umstrukturierungen in Betracht ziehen.</p>
+        </div>
+      </li>
+    </ul>
+    <h3>Methodenaufrufe vereinfachen</h3>
+    <ul>
+      <li><h4>Methode umbenennen</h4>
+        <div>
+          <p class="wenn">Wenn der Methoden-Namen nicht klar und deutlich Zweck
+            und Funktion der Methode beschreibt, ...</p>
+          <p class="dann">...  die Methode mit einem treffenden und  verständlichen
+            Namen umbenennen.</p>
+        </div>
+      </li>
+      <li><h4>Parameter hinzufügen</h4>
+        <div>
+          <p class="wenn">Wenn beim Aufruf der Methode mehr Information benötigt wird, ...</p>
+          <p class="dann">... für diese Information einen neuen Parameter einführen.</p></div></li>
+      <li><h4>Parameter entfernen</h4>
+        <div>
+          <p class="wenn">Wenn ein Parameter in der Methode nicht mehr  verwendet wird, ...</p>
+          <p class="dann">... Entfernen!</p></div></li>
+      <li><h4>Vorhandene Objekte komplett übergeben</h4>
+        <div>
+          <p class="wenn">Wenn Information aus einem vorhandenen Objekt als
+            Argument eines Methodenaufrufs benötigt wird, ...</p>
+          <p class="dann">... eine Referenz auf dieses Objekt übergeben.</p></div></li>
+      <li><h4>Vararg-Parameter verwenden</h4>
+        <div>
+          <p class="wenn">Wenn dieselbe Methode sowohl für eine Instanz als auch
+            mehrere Instanzen eines Typs aufgerufen werden können soll, ...</p>
+          <p class="dann">... Eine Methode mit Vararg-Parameter einführen
+            (anstelle von zwei Methoden: einer mit diskreten einzelnen  Argument,
+            einer mit Liste oder Array).</p></div></li>
+      <li><h4>Downcast kapseln</h4>
+        <div>
+          <p class="wenn">Wenn für den Rückgabewert einer Methode eine explizite
+            Typumwandlung (wiederholt!) benötigt wird, ...</p>
+          <p class="dann">... Die Typumwandlung in die Methode hinein verlagern
+            und  den benötigten Typ als Rückgabetyp der Methode verwenden.</p></div></li>
+      <li><h4>Parameter-Objekte verwenden</h4>
+        <div>
+          <p class="wenn">Wenn die Argumente einer Methode eine logische Einheit
+            bilden (die möglicherweise leicht änderbar sein soll, ohne die
+            Methoden-Signatur tangieren!), ...</p>
+          <p class="dann">... die Methodenparameter durch ein Parameter-Objekt ersetzen.</p></div></li>
+      <li><h4>Exceptions einsetzen</h4>
+        <div>
+          <p class="wenn">Wenn während der Methodenausführung Ausnahmesituationen auftreten können, ...</p>
+          <p class="dann">... diese mit Exceptions kommunizieren. Exceptions als Sprachmittel sind genau diesen Zweck gedacht.</p></div></li>
+    </ul>
+    <h3>Datenstrukturen anpassen</h3>
+    <ul>
+      <!--      <li><h4>Objekte erkennen</h4><div><p>Wenn ...</p><p class="">... </p></div></li>-->
+      <li><h4>Arrays typisieren</h4>
+        <div>
+          <p class="wenn">Wenn Daten in nicht typisierten <code>Object</code>-Arrays
+            gehalten werden, ...</p>
+          <p class="dann">... immer durch typisierte Arrays den konkreten Datentyp
+            sichtbar (und vom Compiler prüfbar) machen. Oder besser ...:</p></div></li>
+      <li><h4>Mit typisierten Collections arbeiten</h4>
+        <div>
+          <p class="wenn">Wenn mit Arrays ("richtig") gearbeitet werden soll, ...</p>
+          <p class="dann">... besser mit typisierten Collections arbeiten.</p></div></li>
+      <li><h4>Felder einkapseln</h4>
+        <div>
+          <p class="wenn">Wenn öffentlich zugängliche Felder existieren ...</p>
+          <p class="dann">... Felder einkapseln, d.h. als privat deklarieren und
+            Zugriff nur über Getter und Setter bzw. über Properties-Mechanismus
+            gewähren.</p>
+        </div>
+      </li>
+      <li><h4>Array-Felder durch Objekte ersetzen</h4>
+        <div>
+          <p class="wenn">Wenn in einem Array-Feld unterschiedliche Informationen abgelegt sind ...</p>
+          <p class="dann">... das Array durch ein Objekt mit entsprechend benannten Feldern ersetzen. </p>
+          <h5>Beispiel-Code</h5>
+          <div>
+            <pre>
+// vorher:
+double[] kennwerte = new double[3];
+kennwerte[0] = 10.0;
+kennwerte[1] = 3.33;
+
+// nachher:
+StatistikKennwerte kennwerte1 = new StatistikKennwerte(10.0, 3.33);
+
+// Die Klasse dazu:
+class StatistikKennwerte {
+
+  private double summe;
+  private double mittelwert;
+
+  public StatistikKennwerte(double summe, double mittelwert) {
+    this.summe = summe;
+    this.mittelwert = mittelwert;
+  }
+
+  public double getSumme() {
+    return summe;
+  }
+
+  public void setSumme(double summe) {
+    this.summe = summe;
+  }
+
+  public double getMittelwert() {
+    return mittelwert;
+  }
+
+  public void setMittelwert(double mittelwert) {
+    this.mittelwert = mittelwert;
+  }
+}
+            </pre>
+          </div>
+        </div>
+      </li>
+      <li><h4>Arbeiten mit Typenschlüsseln</h4>
+        <div>
+          <p class="wenn">Wenn der Zustand von Instanzen einer Klasse durch numerische oder alphanumerische Typenschlüssel definiert wird (die das Verhalten der Objekte nicht  beeinflussen), ...</p>
+          <p class="dann">... diese Typenschlüssel durch eine Klasse oder Unterklasse ersetzen.</p>
+          <h5>Beispiel-Code</h5>
+          <div>
+            <pre>
+// vorher
+public class Person {
+
+  public final static int GENDER_UNKNOWN = 0;
+  public final static int GENDER_FEMALE  = 1;
+  public final static int GENDER_MALE    = 2;
+
+  private int gender = 0;
+
+}
+
+// nachher
+public class Person {
+
+  private Gender gender = Gender.UNKNOWN;
+
+  // Typsicherer Schlüssel
+  public enum Gender {
+    UNKNOWN, FEMALE, MALE
+  }
+}
+
+            </pre>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <h3>Bedingte Ausdrücke vereinfachen</h3>
+    <ul>
+      <li><h4>Bedingungen reorganisieren</h4>
+        <div>
+          <p class="wenn">Wenn eine Methode komplexe und verschachtelte bedingte Ausdrücke besitzt, ...</p>
+          <div class="dann"><p>... diese nach verschiedenen Aspekten optimieren:
+            </p><ul>
+              <li>Komplexe Ausdrücke zerlegen,</li>
+              <li>zusammengehörige Bedingungen zusammenführen</li>
+              <li>... und eventuell als Methode auslagern, </li>
+              <li>Geschachtelte Bedingungen durch "Wächter"-Klauseln ersetzen.</li>
+            </ul>
+          </div>
+          <h5>Beispiel-Code &ldquo;Wächter-Klauseln&rdquo;</h5>
+          <div>
+            <pre>
+// vorher
+public void eineMethode(String parameter){
+  if (parameter != null) {
+    if (parameter.length() > 3) {
+      // ... verarbeiten
+    } else {
+      // ... Fehler, zu kurz
+    }
+  } else {
+    // Fehler, null
+  }
+}
+
+// nachher (mit Exceptions)
+public void eineMethode(String parameter) throws Exception {
+  if (parameter == null) {
+    throw new NullPointerException("parameter darf nicht null sein.");
+  }
+  if (parameter.length() < 4) {
+    throw new Exception("Wert zu kurz, erfordert min. 4 Zeichen");
+  }
+
+  // ... verarbeiten
+}
+            </pre>
+          </div>
+        </li>
+      <li><h4>Control Flags entfernen</h4>
+        <div>
+          <p class="wenn">Wenn eine Variable als Control Flag für eine Reihe von boolschen Ausdrücken dient, z.B. Prüfung von Objekten in einem Array oder in einer Collection, ...</p>
+          <p class="dann">... Control Flag durch Rücksprung oder Abbruch ersetzen.</p>
+          <h5>Beispiel-Code </h5>
+          <div>
+            <pre>
+// vorher
+public boolean pruefePersonen(Person... personen){
+  boolean gefunden = false;
+
+  for (Person person : personen) {
+    if ((person.getName().equals("Doe") && person.getVorname().equals("John"))) {
+      gefunden = true;
+    }
+  }
+
+  return gefunden;
+}
+
+//nachher
+public boolean pruefePersonen(Person... personen){
+  for (Person person : personen) {
+    if ((person.getName().equals("Doe") && person.getVorname().equals("John"))) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// alternativ, um mehrere Exits vermeiden
+public boolean pruefePersonen(Person... personen){
+  boolean gefunden = false;
+
+  for (Person person : personen) {
+    if ((person.getName().equals("Doe") && person.getVorname().equals("John"))) {
+      gefunden = true;
+	  break; // restliche Items übergehen
+    }
+  }
+
+  return gefunden;
+}
+            </pre>
+          </div>
+        </div>
+      </li>
+      <li><h4>Fallunterscheidungen durch Polymorphie ersetzen</h4>
+        <div>
+          <p class="wenn">Wenn Fallunterscheidungen anhand eines Datentyps vorgenommen werden, ...</p>
+          <p class="dann">... für jeden Fall eine polymorphe Methode implementieren.</p>
+          <h5>Beispiel-Code</h5>
+          <div>
+            <pre>
+// vorher:
+public double berechneGehalt(Mitarbeiter mitarbeiter) {
+
+  if (mitarbeiter instanceof Angestellter) {
+    Angestellter angestellter = (Angestellter) mitarbeiter;
+    return angestellter.getGehalt();
+
+  } else if (mitarbeiter instanceof Freelancer) {
+    Freelancer freelancer = (Freelancer) mitarbeiter;
+    int stunden = getGeleisteteStunden(freelancer);
+    return freelancer.getStundensatz() * stunden;
+
+  } else {
+    throw new RuntimeException("Fehler, unbekannter Mitarbeiter-Type");
+  }
+}
+
+
+// nachher:
+public double berechneGehalt(Freelancer freelancer) {
+  int stunden = getGeleisteteStunden(freelancer);
+  return freelancer.getStundensatz() * stunden;
+}
+
+
+public double berechneGehalt(Angestellter angestellter) {
+  return angestellter.getGehalt();
+}
+            </pre>
+          </div>
+        </div>
+      </li>
+      <li><h4>Null-Objekt einführen</h4>
+        <div>
+          <p class="wenn">Wenn im Zusammenhang mit einem Typ häufig auf null geprüft werden muss, ...</p>
+          <p class="dann">... für diesen Typ ein Null-Objekt definieren - mit einem abgeleiteten eigenen Typen.</p></div></li>
+      <li><h4>Assertions</h4>
+        <div>
+          <p class="wenn">Wenn in der Anwendung Annahmen über den Stand derselben geprüft werden müssen (z.B. Vorbedingungen zur Methodenausführung), ...</p>
+          <p class="dann">... diese mit Zusicherungen (Assertions) prüfen lassen.<br>
+            <b>Achtung! Die JVM prüft Assertions standardmäßig NICHT!<br>
+              Daher ist der Einsatz von Zusicherungen in Java grundsätzlich zu überdenken! </b></p>
+        </div></li>
+    </ul>
+    <h3>Generalisierung und Refactoring</h3>
+    <ul>
+      <li><h4>Klassen und Interfaces extrahieren</h4>
+        <div>
+          <p class="wenn">Wenn mehrere Klassen teilweise dieselben Methoden anbieten, oder wenn regelmäßig dieselbe Untermenge von Methoden aus der Schnittstelle benötigt wird, ...</p>
+          <p class="dann">... Oberklasse oder Interface definieren, die die betreffenden Methoden aufnehmen.</p></div></li>
+      <li><h4>Felder und Methoden verschieben</h4>
+        <div>
+          <p class="wenn">Wenn Felder oder Methoden von  mehreren Unterklassen benötigt werden, ...</p>
+          <p class="dann">... werden sie in Oberklasse oder Interface  hochgezogen. Im entgegengesetzten Fall werden sie in die Unterklasse verschoben.</p></div></li>
+      <!--      <li><h4>Refactoring über Assoziationen</h4><div><p>Wenn ...</p><p class="">... </p></div></li>-->
+      <li><h4>flachere Hierarchien einsetzen</h4>
+        <div>
+          <p class="wenn">Wenn sich Unterklasse und Oberklasse geringfügig unterscheiden, ...</p>
+          <p class="dann">... beide Klassen zu einer einzigen zusammenfassen.</p></div></li>
+      <li><h4>Mit Delegation arbeiten</h4>
+        <div>
+          <p class="wenn">Wenn in der Unterklasse das Verhalten der Oberklasse benötigt wird, jedoch keine Eigenschaften geerbt werden sollen, ...</p>
+          <p class="dann">... dann kann Vererbung durch Delegation ersetzt werden.</p></div></li>
+      <li><h4>Template-Methoden</h4>
+        <div>
+          <p class="wenn">Wenn in Unterklassen die gleiche Methode  mit mehreren Schritten unterschiedlich implementiert werden müssen, ...</p>
+          <p class="dann">... dann kann in der Oberklasse oder Schnittstelle  für jeden dieser Teilschritte eine Schablonenmethode deklariert werden.</p></div></li>
+    </ul>
+
+    <h3>Quellen</h3>
+    <a href="http://www.refactoring.com/catalog/" target="_blank">http://www.refactoring.com/catalog/</a><br>
+    <a href="http://www.tutego.de/java/refactoring/catalog/index.html" target="_blank">http://www.tutego.de/java/refactoring/catalog/index.html</a>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20.08.2015, 11:41:49
+    Author     : Robert Rohm&lt;r.rohm@aeonium-systems.de&gt;
+*/
+
+* {
+  font-family: "Lucida Sans", Verdana, Arial, Helvetica, sans-serif;
+}
+
+h3 {
+  margin-top: 4em;
+}
+
+img {
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 2px #999;
+  margin-top: 1em;
+}
+
+figcaption {
+  margin-top: 0.5em;
+}

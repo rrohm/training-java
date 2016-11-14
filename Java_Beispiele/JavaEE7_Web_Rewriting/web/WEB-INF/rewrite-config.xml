@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<rewrite-config>
+  <mapping>
+    <pattern>/go/{id}</pattern>
+    <toView>/page1.xhtml</toView>
+  </mapping>
+  <mapping>
+    <pattern>/find/{id}</pattern>
+    <toView>/page2.xhtml</toView>
+  </mapping>
+  <mapping>
+    <pattern>/jsf/1</pattern>
+    <toView>/page1</toView>
+  </mapping>
+</rewrite-config>

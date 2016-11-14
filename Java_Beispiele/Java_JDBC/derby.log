@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Apr 30 14:20:01 CEST 2015:
+Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): Instanz a816c00e-014d-0a44-f5a9-000006eeec58
+für Datenbankverzeichnis /data/aeonium/Projekte/aeJavaTraining/work/Java_JDBC/db/data mit Class Loader sun.misc.Launcher$AppClassLoader@45ee12a7
+Geladen aus file:/usr/lib/jvm/jdk1.8.0_40/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_45-b14
+user.dir=/data/aeonium/Projekte/aeJavaTraining/work/Java_JDBC
+os.name=Linux
+os.arch=amd64
+os.version=3.13.0-49-generic
+derby.system.home=null
+Datenbank-Class Loader wurde gestartet - derby.database.classpath=''

@@ -1,0 +1,57 @@
+/*
+ DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+ Copyright 2014 AEONIUM SOFTWARE SYSTEMS - ALL RIGHTS RESERVED.
+
+ The contents of this file are intellectual property of
+ Aeonium Software Systems, Robert Rohm. All rights reserved.
+ You must NOT, especially:
+ - redistribute this file in source form,
+ - redistribute this file in binary form,
+ - modify this file,
+ - use this file for your own work
+ WITHOUT WRITTEN PERMISSION.
+
+ Anyway, we appreciate any interest in our work and knowledge.
+ So, if you wish to use this file for your own purposes,
+ please contact us:
+ mailto:info@aeonium-systems.de
+
+
+ © 2014 Aeonium Software Systems, Robert Rohm.
+*/
+
+* {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 12px;
+}
+h1 {font-size: 24px;}
+h2 {font-size: 20px;}
+h3 {font-size: 16px; margin-top: 20px;}
+h4, h5, h6, p {
+  margin: 4px 0px;
+  padding: 0px;
+}
+h5, h6 {color: #555;}
+
+.wenn {
+  background-color: #fed;
+  border-radius: 5px;
+  padding: 5px;
+  color: #300;
+  font-style: italic;
+}
+
+.dann {
+  background-color: #dfd;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  color: #030;
+}
+h4 + div {padding-bottom: 10px;}
+.dots:after { content: ' ...' }

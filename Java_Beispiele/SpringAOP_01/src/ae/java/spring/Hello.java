@@ -1,0 +1,57 @@
+/*
+ *  This code is released under Creative Commons Attribution 4.0 International
+ *  (CC BY 4.0) license, http://creativecommons.org/licenses/by/4.0/legalcode .
+ *  That means:
+ *
+ *  You are free to:
+ *
+ *      Share — copy and redistribute the material in any medium or format
+ *      Adapt — remix, transform, and build upon the material
+ *               for any purpose, even commercially.
+ *
+ *      The licensor cannot revoke these freedoms as long as you follow the
+ *      license terms.
+ *
+ *  Under the following terms:
+ *
+ *      Attribution — You must give appropriate credit, provide a link to the
+ *      license, and indicate if changes were made. You may do so in any
+ *      reasonable manner, but not in any way that suggests the licensor endorses
+ *      you or your use.
+ *
+ *  No additional restrictions — You may not apply legal terms or technological
+ *  measures that legally restrict others from doing anything the license
+ *  permits.
+ *
+ *
+ *  2015 Aeonium Software Systems, Robert Rohm.
+ */
+package ae.java.spring;
+
+import org.springframework.stereotype.Component;
+
+/**
+ * "Business logic" class that should get augmented by AOP ...
+ *
+ * @author Robert Rohm&lt;r.rohm@aeonium-systems.de&gt;
+ */
+@Component
+public class Hello {
+
+  public void sayHelloWorld(){
+    System.out.println("Hello World!");
+
+    // triggers AfterThronwing advice:
+//    throw new RuntimeException("!!!");
+  }
+
+  /**
+   * This method is mapped by Annotation.
+   *
+   * @param name
+   */
+  @MyAspectAnnotation
+  public void sayHello(String name){
+    System.out.println("Hello " + name);
+  }
+}
