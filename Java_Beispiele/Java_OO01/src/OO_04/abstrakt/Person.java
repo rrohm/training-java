@@ -35,7 +35,7 @@ package OO_04.abstrakt;
 public abstract class Person {
 
   /**
-   * Sichtbarkeit protected: wie private, aber auch in abgeleiteten Klassen0
+   * Sichtbarkeit protected: wie private, aber auch in abgeleiteten Klassen
    */
   protected String name;
   protected String vorname;

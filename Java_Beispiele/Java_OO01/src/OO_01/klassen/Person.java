@@ -31,7 +31,7 @@ package OO_01.klassen;
 /**
  * Anmerkung: Bie einfahcen Datenobjekten ist zu überlegen, ob Vereerbung
  * generell erwünscht/hilfreich ist! Bei Verwendung von z.B. JPA oder anderen
- * Frameworrks macht es Sinn, v.a. Datenklassen nicht mehr ableiten zu lassen,
+ * Frameworks macht es Sinn, v.a. Datenklassen nicht mehr ableiten zu lassen,
  * mit final-Modifizierer.
  *
  * @author Robert Rohm&lt;r.rohm@aeonium-systems.de&gt;

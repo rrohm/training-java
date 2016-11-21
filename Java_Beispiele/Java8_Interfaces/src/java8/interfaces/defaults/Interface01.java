@@ -33,7 +33,7 @@ package java8.interfaces.defaults;
  * @author Robert Rohm&lt;r.rohm@aeonium-systems.de&gt;
  */
 public interface Interface01 {
-
+  
     public void methodeAusIntf01();
 
     /**

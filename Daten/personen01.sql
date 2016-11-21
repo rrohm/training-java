@@ -5,6 +5,9 @@ CREATE TABLE personen (
 )
 ;
 
+ALTER TABLE personen ADD CONSTRAINT pk_personen_id PRIMARY KEY (person_id)
+;
+
 INSERT INTO personen (person_name, person_alter) 
 VALUES ('Mustermann, Max', 45)
 ;

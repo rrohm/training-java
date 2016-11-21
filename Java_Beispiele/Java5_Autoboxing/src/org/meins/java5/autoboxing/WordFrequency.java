@@ -45,25 +45,29 @@ import java.util.TreeMap;
  */
 public class WordFrequency {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        // Map: vgl. Dictionary oder assoziatives Array, 
-        // hier: eine Map, die mit String-Schlüsseln und Integer-Werten 
-        // arbeitet (siehe Generics!). Die generisch Map wird hier daher mit 
-        // zwei Typ-Parametern deklariert - einen für den Key-Typ, einen für 
-        // den Value-Typ. Damit kann hier typsicher gearbeitet werden, da dies
-        // so für den Compiler prüfbar ist. 
-        Map<String, Integer> m = new TreeMap<>(); // "Diamond Operator"/"Typ-Inferenz" aus JDK7
-        
-        for (String word : args) {
-            Integer freq = m.get(word);
-            m.put(word, (freq == null ? 1 : freq + 1));
-        }
-        System.out.println(m);
+  /**
+   * @param args the command line arguments
+   */
+  public static void main(String[] args) {
+
+    // Map: vgl. Dictionary oder assoziatives Array, 
+    // hier: eine Map, die mit String-Schlüsseln und Integer-Werten 
+    // arbeitet (siehe Generics!). Die generisch Map wird hier daher mit 
+    // zwei Typ-Parametern deklariert - einen für den Key-Typ, einen für 
+    // den Value-Typ. Damit kann hier typsicher gearbeitet werden, da dies
+    // so für den Compiler prüfbar ist. 
+    Map<String, Integer> m = new TreeMap<>(); // "Diamond Operator"/"Typ-Inferenz" aus JDK7
+
+    for (String word : args) {
+      Integer freq = m.get(word);
+      
+      // Ternärer Operator in Java: 
+      // freq == null ? 1 : freq + 1
+      // Typ ergebnis = (Bedingung)  ? (true-Fall) : (false-Fall)
+      m.put(word, (freq == null ? 1 : freq + 1));
     }
+    System.out.println(m);
+  }
 }
 // Aufruf an Konsole z.B. mit diesem "Argument":
 // sein oder nicht sein das ist hier die Frage die nicht sein soll

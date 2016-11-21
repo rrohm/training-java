@@ -35,18 +35,18 @@ import java.lang.annotation.Target;
 
 /**
  * Annotations werden als Interfaces mit vorangestelltem
- * @ deklariert.
+ * \@ deklariert.
  *
  * Mit "Meta-Annotationen" wird das Verhalten und die Verwendung von
  * Annotationen näher definiert:
  *
- * @Retention(RetentionPolicy.RUNTIME) bestimmt z.B., dass die Annotation auch
+ * \@Retention(RetentionPolicy.RUNTIME) bestimmt z.B., dass die Annotation auch
  * zur Laufzeit noch ausgewertet werden kann.
  *
- * @Target(ElementType.METHOD) bestimmt z.B. dass die Annotation nur auf
+ * \@Target(ElementType.METHOD) bestimmt z.B. dass die Annotation nur auf
  * Methoden angewendet werden kann.
  *
- * @author R. Rohm
+ * \@author R. Rohm
  *
  */
 @Retention(RetentionPolicy.RUNTIME)

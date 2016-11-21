@@ -42,11 +42,11 @@ public class MeinConditionalRunnable implements Runnable {
 
   private int counter = 0;
   private final Lock lock;
-  private final Condition c;
+  private final Condition fertigCondition;
   private int sleepTime;
 
   public MeinConditionalRunnable(Lock lock, Condition c, int sleepTime) {
-    this.c = c;
+    this.fertigCondition = c;
     this.sleepTime = sleepTime;
     this.lock = lock;
   }
@@ -67,8 +67,8 @@ public class MeinConditionalRunnable implements Runnable {
         // Hier: in regelmäßigen Abständen "abgeben" an andere Threads:
         if (counter % 10 == 0) {
 
-          this.c.signalAll();
-          this.c.await();
+          this.fertigCondition.signalAll();
+          this.fertigCondition.await();
         }
       }
     } catch (InterruptedException ex) {
