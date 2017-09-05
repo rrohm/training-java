@@ -24,7 +24,7 @@
  *  permits.
  * 
  *
- *  2016 Aeonium Software Systems, Robert Rohm.
+ *  2017 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.java8.lambdas;
 
@@ -34,10 +34,15 @@ package org.meins.java8.lambdas;
  */
 public class Java8_Lambdas02_Zuweisung {
   
+  /**
+   * @FunctionalInterface fordert den Compiler zur Prüfung auf, ob das hier 
+   * definierte Interface auch wirklich als SAM-Typ funktioniert.
+   */
   @FunctionalInterface
-  public static interface Lambda{
+  interface Lambda{
     void doSomething();
   }
+  
 
   /**
    * @param args the command line arguments

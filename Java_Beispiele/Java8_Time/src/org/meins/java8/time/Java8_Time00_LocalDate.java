@@ -24,7 +24,7 @@
  *  permits.
  * 
  *
- *  2015 Aeonium Software Systems, Robert Rohm.
+ *  2017 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.java8.time;
 
@@ -56,7 +56,7 @@ public class Java8_Time00_LocalDate {
     LocalDate beginOfNextMonth = now.with(TemporalAdjusters.firstDayOfMonth()).plusMonths(1);
     LocalDate beginOfNextMonth2 = now.with(TemporalAdjusters.firstDayOfMonth()).plus(1, ChronoUnit.MONTHS);
     
-    // 2. Printing date an time information
+    // 2. Printing date and time information
     System.out.println(beginOfNextMonth.getMonth().getDisplayName(TextStyle.FULL, Locale.FRENCH));
     System.out.println(beginOfNextMonth2.getMonth().getDisplayName(TextStyle.FULL_STANDALONE, Locale.GERMANY));
     System.out.println(beginOfNextMonth.getMonth().getDisplayName(TextStyle.NARROW, Locale.GERMANY));

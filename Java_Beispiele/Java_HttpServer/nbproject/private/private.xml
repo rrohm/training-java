@@ -9,5 +9,9 @@
         <group>
             <file>file:/data/aeonium/Projekte/aeJavaTraining/work/Java_HttpServer/src/java_httpserver/Java_HttpServer.java</file>
         </group>
+        <group name="aeRaspiRover">
+            <file>file:/data/aeonium/Projekte/aeJavaTraining/work/Java_HttpServer/src/java_httpserver/MyHandler.java</file>
+            <file>file:/data/aeonium/Projekte/aeJavaTraining/work/Java_HttpServer/src/java_httpserver/Java_HttpServer.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -5,6 +5,8 @@
         <group name="1412-349"/>
         <group name="aeJavaTraining"/>
         <group/>
-        <group name="e:structor (JEE, Ant)"/>
+        <group name="e:structor (JEE, Ant)">
+            <file>file:/data/aeonium/Projekte/aeJavaTraining/work/Crypto01_SimpleAES/src/org/meins/java/crypt/Crypto01_SimpleAES.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -28,31 +28,29 @@
  */
 package org.meins.java.sprache;
 
-import java.util.Arrays;
-
 /**
+ * Dieses Beispiel illustriert grundlegende Syntax und Verwendung von Objekten
+ * in Java.
  *
  * @author Robert Rohm&lt;r.rohm@aeonium-systems.de&gt;
  */
 public class Java02_Objekte {
-  
+
   /**
    * @param args the command line arguments
    */
   public static void main(String[] args) {
-    // Arrays sind in Java immer statisch getypt und in ihrer Länge unveränderlich. 
-    int[] einIntArray = {0, 1, 1, 2, 3};
-    
-    System.out.println("Länge des Arrays: " + einIntArray.length);
-    System.out.println("Array in Stringform: " + Arrays.toString(einIntArray));
-    
-    // Das "Verändern" der Array-Länge ist daher vergleichsweise aufwändig: 
-    // letztendlich muss immer ein neues Array mit der gewünschten Länge 
-    // erstellt werden, und der Inhalt des alten Arrays muss ggf. umkopiert werden:
-    int[] einLaengeresArray = Arrays.copyOf(einIntArray, einIntArray.length +1);
-    einLaengeresArray[einLaengeresArray.length -1] = 4;
-    
-    System.out.println("Längeres Array: " + Arrays.toString(einLaengeresArray));
+
+    // Objekte werden mit dem new-Operator als Instanzen einer Klasse instanziert.
+    // Die Klasse Object ist die Basisklasse eines jeden Klassen-Typs. 
+    Object o1 = new Object();
+    Object o2 = new Object();
+
+    // Die KLasse Object stellt grundlegende Funktionalität für Objekt-Typen 
+    // bereit, wie z.B. Prüfen auf Gleichheit und String-Repräsentation
+    System.out.println("o1: " + o1);
+    System.out.println("o2: " + o2);
+    System.out.println("o1 identisch mit o2? " + (o1.equals(o2)));
     
   }
 }

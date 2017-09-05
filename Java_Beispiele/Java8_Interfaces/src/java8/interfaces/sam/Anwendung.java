@@ -24,7 +24,7 @@
  *  permits.
  * 
  *
- *  2016 Aeonium Software Systems, Robert Rohm.
+ *  2017 Aeonium Software Systems, Robert Rohm.
  */
 package java8.interfaces.sam;
 
@@ -66,5 +66,10 @@ public class Anwendung {
 
     System.out.println("outputString: " + outputString);
 
+    
+    // Anwendungsfall: Runnable
+    new Thread(() -> {
+      System.out.println("Nebenläufige Logik, kurz und knapp");
+    }).start();
   }
 }

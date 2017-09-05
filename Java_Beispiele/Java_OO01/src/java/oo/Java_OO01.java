@@ -24,7 +24,7 @@
  *  permits.
  *
  *
- *  2015 Aeonium Software Systems, Robert Rohm.
+ *  2017 Aeonium Software Systems, Robert Rohm.
  */
 package java.oo;
 
@@ -51,7 +51,7 @@ public class Java_OO01 {
 
     // Liskov'sches Substitutionsprinzip: für eine Variable mit dem Vorfahren-Typ
     // kann auch ein Wert vom abgeleiteten Typ verwendet werden. Dann sind jedoch
-    // nur Merkmalen aus dem ober-Typ sichtbar.
+    // nur Merkmalen aus dem Ober-Typ sichtbar.
     Person p3 = m;
 
   }

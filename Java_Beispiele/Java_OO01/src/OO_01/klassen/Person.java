@@ -24,7 +24,7 @@
  *  permits.
  *
  *
- *  2015 Aeonium Software Systems, Robert Rohm.
+ *  2017 Aeonium Software Systems, Robert Rohm.
  */
 package OO_01.klassen;
 
@@ -42,8 +42,8 @@ public class Person {
    * Sichtbarkeit protected: wie private, aber auch in abgeleiteten Klassen.
    * ACHTUNG: Welche Sichtbarkeit haben Felder/Methoden ohne explizite Angabe?
    */
-  String name;
-  String vorname;
+  protected String name;
+  protected String vorname;
 
   public Person() {
   }

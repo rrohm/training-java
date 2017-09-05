@@ -24,7 +24,7 @@
  *  permits.
  *
  *
- *  2015 Aeonium Software Systems, Robert Rohm.
+ *  2017 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.generics.bsp00_Klassenschablonen;
 
@@ -62,7 +62,5 @@ public class Klassenschablone {
 
     rawBox = stringBox;
     rawBox.setValue(new Date());
-    System.out.println(stringBox.getValue());
-
   }
 }

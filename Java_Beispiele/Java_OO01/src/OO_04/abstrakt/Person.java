@@ -24,7 +24,7 @@
  *  permits.
  *
  *
- *  2015 Aeonium Software Systems, Robert Rohm.
+ *  2017 Aeonium Software Systems, Robert Rohm.
  */
 package OO_04.abstrakt;
 
@@ -47,6 +47,10 @@ public abstract class Person {
     this.name = name;
     this.vorname = vorname;
   }
+  
+  // Auch möglich: Definition von Abstrakten Methoden, die von den 
+  // ableitenden Typenn implementier werden *müssen* - andernfalls folgt Compiler-Fehler
+  //public abstract String abstrakteMethode();
 
   /**
    * ACHTUNG: "this" bezieht sich hier auf den Typ, in dem diese Methode

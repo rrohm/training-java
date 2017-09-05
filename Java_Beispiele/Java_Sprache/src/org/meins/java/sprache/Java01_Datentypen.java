@@ -29,6 +29,8 @@
 package org.meins.java.sprache;
 
 /**
+ * Dieses Beispiel illustriert grundlegende Syntax und Verwendung der primitiven
+ * Datentypen in Java.
  *
  * @author Robert Rohm&lt;r.rohm@aeonium-systems.de&gt;
  */
@@ -42,18 +44,25 @@ public class Java01_Datentypen {
     // a) Primmitive Ganzzahl-Typen - generell vorzeichenbehaftet 
     byte einByte = Byte.MAX_VALUE;
     short ein16BitShort = Short.MAX_VALUE;
-    int  ein32BitInteger = Integer.MAX_VALUE;
+    int ein32BitInteger = Integer.MAX_VALUE;
     long ein64BitLong = Long.MAX_VALUE;
     
+    // Autoboxing
+    ein32BitInteger = new Integer(123);  // ACHTUNG: Objekt-Instanzierung, HEAP!
+    Integer objektInt = ein32BitInteger; // ACHTUNG: Objekt-Instanzierung, HEAP!
+
     // b) Primitive Gleitkomma-Typen - ebenfalls generell vorzeichenbehaftet
     float ein32BitFloat = Float.MAX_VALUE;
     double ein64BitFloat = Double.MAX_VALUE;
-    
+
     // c) Boolesche Werte
     boolean einBoolean = true;
-    
+
     // d) Objekt-Typen
     Object o = new Object();
+    
+    // e) Strings
+    String t = "Ich bin ein String";
   }
-  
+
 }

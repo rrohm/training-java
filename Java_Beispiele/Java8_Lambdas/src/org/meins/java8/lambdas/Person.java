@@ -24,7 +24,7 @@
  *  permits.
  * 
  *
- *  2016 Aeonium Software Systems, Robert Rohm.
+ *  2017 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.java8.lambdas;
 

@@ -24,7 +24,7 @@
  *  permits.
  *
  *
- *  2015 Aeonium Software Systems, Robert Rohm.
+ *  2017 Aeonium Software Systems, Robert Rohm.
  */
 package java8.interfaces.defaults;
 
@@ -36,15 +36,23 @@ package java8.interfaces.defaults;
  *
  * @author Robert Rohm&lt;r.rohm@aeonium-systems.de&gt;
  */
-public class Klasse03 implements Interface01 /*, Interface02 */ {
+public class Klasse03 implements Interface01 , Interface02  {
 
   @Override
   public void methodeAusIntf01() {
     throw new UnsupportedOperationException("Not supported yet.");
   }
 
-//  @Override
-//  public void methodeAusIntf02() {
-//    throw new UnsupportedOperationException("Not supported yet."); 
-//  }
+  @Override
+  public void methodeAusIntf02() {
+    throw new UnsupportedOperationException("Not supported yet."); 
+  }
+
+  
+  @Override
+  public void defaultMethode01() {
+    Interface01.super.defaultMethode01(); 
+  }
+  
+  
 }

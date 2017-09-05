@@ -99,6 +99,13 @@ public class FehlerbehandlungJDK7 {
    */
   public void MehrereExceptions2() throws IOException, RemoteException,
           Exception {
+    try {
+      
+    } catch (FileNotFoundException| IOException e) {
+      // Gemeinsame Fehlerbehandlung für mehrere Typen
+    } catch (RemoteException e) {
+    } catch (Exception e) {
+    }
   }
 
   public void MehrereExceptionsWeiterwerfernInJDK7() throws IOException, RemoteException {
@@ -120,7 +127,7 @@ public class FehlerbehandlungJDK7 {
     try {
       // Code...
       // durch "Final-Rethrow" bleibt die Typ-Information
-      // erhalten - so dass sp�ter noch individuell
+      // erhalten - so dass später noch individuell
       // reagiert werden kann
     } catch (final FileNotFoundException | IOException e) {
       // TODO: handle exception
