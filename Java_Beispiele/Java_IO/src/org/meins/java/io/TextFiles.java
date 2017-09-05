@@ -37,6 +37,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * Einfaches Beispiel für Schreiung sowei direktes und gepuffertes Lesen von
+ * Text-Daten mit der klasischen IO-API.
  *
  * @author Robert Rohm&lt;r.rohm@aeonium-systems.de&gt;
  */
@@ -46,12 +48,13 @@ public class TextFiles {
    * @param args the command line arguments
    */
   public static void main(String[] args) {
-    
+
     File f;
     try {
       f = File.createTempFile("my-text-file-", ".txt");
+      // auch möglich: 
 //      f.deleteOnExit();
-      
+
       FileWriter writer = new FileWriter(f);
       writer.write("Erste Zeile");
       writer.append(System.getProperty("line.separator"));
@@ -60,28 +63,27 @@ public class TextFiles {
       writer.write("Dritte Zeile");
       writer.flush();
       writer.close();
-      
+
       System.out.println("Zeichen-weise Lesen mit einem FileReader");
-      
+
       FileReader reader = new FileReader(f);
       int c = 0;
       while ((c = reader.read()) != -1) {
         System.out.print((char) c);
       }
-      
+
       System.out.println("Zeilen-weise lesen mit einem BufferedReader");
-      // A new reader is required, the old one cannot be reset.
+      // Ein neuer Reader muss erstellt werden, der alte kann nicht zurückgesetzt werden:
       FileReader reader2 = new FileReader(f);
       BufferedReader bufferedReader = new BufferedReader(reader2);
-      String line;  
+      String line;
       while ((line = bufferedReader.readLine()) != null) {
         System.out.println(line);
       }
-      
+
       reader.close();
       reader2.close();
-      
-//      File
+
     } catch (IOException ex) {
       Logger.getLogger(TextFiles.class.getName()).log(Level.SEVERE, null, ex);
     }
