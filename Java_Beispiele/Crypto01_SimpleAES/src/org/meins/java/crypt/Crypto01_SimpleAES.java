@@ -17,14 +17,15 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
 /**
- * Dieses Beispiel illustriert das grundsätzliche Vorgehen in der Arbeit mit 
- * der Crypto-API.
- * 
+ * Dieses Beispiel illustriert das grundsätzliche Vorgehen in der Arbeit mit der
+ * Crypto-API.
+ *
  * @author robert rohm
  */
 public class Crypto01_SimpleAES {
+
   public static final String BSP_01 = "Das ist der erste wichtige Text. Wie lange ist der Text aktuell? "
-                                + "Und wie lange wird er sein, wenn er verschlüsselt ist? ";
+          + "Und wie lange wird er sein, wenn er verschlüsselt ist? ";
   public static final String BSP_02 = "Das ist der kurze wichtige Text. ";
   public static final String BSP_03 = "Das ist der erste wichtige Text. Wie lange ist der Text aktuell? "
           + "Und wie lange wird er sein, wenn er verschlüsselt ist? Vor allem, "
@@ -32,10 +33,8 @@ public class Crypto01_SimpleAES {
           + "je gewähltem Algorithmus und gewählter Speichermethode verschlüsselt"
           + "wesentlich mehr Speicher beanspruchen kann. ";
 
-
   public static final String CRYPT_ALGORITHM = "AES";
 
-  
   /**
    * @param args the command line arguments
    */
@@ -63,7 +62,6 @@ public class Crypto01_SimpleAES {
 
     Cipher cipher = Cipher.getInstance(CRYPT_ALGORITHM);
     cipher.init(Cipher.ENCRYPT_MODE, key);
-
 
     String data = BSP_03;
 
@@ -97,24 +95,35 @@ public class Crypto01_SimpleAES {
     System.out.println(decodedText);
   }
 
-  private static void printBytes(byte[] data){
+  private static void printBytes(byte[] data) {
     for (byte b : data) {
       System.out.println(b);
     }
   }
 
-  private static String bytesToString(byte[] data){
+  private static String bytesToString(byte[] data) {
     StringBuilder sb = new StringBuilder();
     for (byte b : data) {
       sb.append(b);
     }
     return sb.toString();
   }
-  private static String bytesToHexString(byte[] data){
+
+  private static String bytesToHexString(byte[] data) {
     StringBuilder sb = new StringBuilder();
     for (byte b : data) {
       sb.append(String.format("%02X", b));
     }
     return sb.toString();
+  }
+
+  public static byte[] hexStringToByteArray(String s) {
+    int len = s.length();
+    byte[] data = new byte[len / 2];
+    for (int i = 0; i < len; i += 2) {
+      data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+              + Character.digit(s.charAt(i + 1), 16));
+    }
+    return data;
   }
 }

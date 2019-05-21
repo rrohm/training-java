@@ -26,7 +26,7 @@ package org.meins.java7.sprache;
  *  permits.
  *
  *
- *  2017 Aeonium Software Systems, Robert Rohm.
+ *  2019 Aeonium Software Systems, Robert Rohm.
  */
 /**
  * Methoden mit vararg-Parameter - im Prinzip bequemer Erstatz für

@@ -31,7 +31,7 @@ public class JavaObjectsInScript {
 	    jsEngine.eval("var x;" +
 	                  "var names = namesListKey.toArray();" +
 	                  "for(x in names) {" +
-	                  "  println(names[x]);" + // JDK7: println, JDK8: print
+	                  "  print(names[x]);" + // JDK7: println, JDK8+: print
 	                  "}" +
 	                  "namesListKey.add(\"Dana\");");
 	  } catch (ScriptException ex) {

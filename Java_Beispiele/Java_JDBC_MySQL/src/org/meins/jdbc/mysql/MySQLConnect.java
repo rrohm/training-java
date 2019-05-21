@@ -18,7 +18,7 @@
  * mailto:info@aeonium-systems.de
  *
  *
- * © 2013 Aeonium Software Systems, Robert Rohm.
+ * © 2019 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.jdbc.mysql;
 
@@ -43,9 +43,8 @@ public class MySQLConnect {
   public static void main(String[] args) {
     try {
 
-      // TODO code application logic here
       // Für MySQL
-      Class.forName("com.mysql.jdbc.Driver").newInstance();
+      Class.forName("com.mysql.jdbc.Driver");
       Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.56.200/mysql?user=vmuser&password=password");
 
       
@@ -64,13 +63,7 @@ public class MySQLConnect {
         }
       }
 
-    } catch (SQLException ex) {
-      Logger.getLogger(MySQLConnect.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(MySQLConnect.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-      Logger.getLogger(MySQLConnect.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
+    } catch (SQLException | ClassNotFoundException ex) {
       Logger.getLogger(MySQLConnect.class.getName()).log(Level.SEVERE, null, ex);
     }
   }

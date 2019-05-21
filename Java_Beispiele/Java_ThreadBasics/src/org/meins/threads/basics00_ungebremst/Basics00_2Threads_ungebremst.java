@@ -34,52 +34,58 @@ package org.meins.threads.basics00_ungebremst;
  */
 public class Basics00_2Threads_ungebremst {
 
-    // Innere Klasse ist hier static, weil sie aus statischem Kontext heraus aufgerufen wird.
-    static class MeinRunnable implements Runnable {
+  // Innere Klasse ist hier static, weil sie aus statischem Kontext heraus aufgerufen wird.
+  static class MeinRunnable implements Runnable {
 
-        private int counter = 0;
+    private int counter = 0;
 
-        /**
-         * Nebenläufig auszuführender Code wird in der run()-Methode
-         * implementiert.
-         */
-        @Override
-        public void run() {
-            while (!Thread.currentThread().isInterrupted()) {
-                System.out.println(Thread.currentThread().getName() + " counter: " + counter++);
-            }
-            // Hier folgt z.B. Aufräum-Arbeit vor Verlassen des Runnables.
-            // Bei Verlassen der run()-Methode terminiert der Thread.
-        }
+    /**
+     * Nebenläufig auszuführender Code wird in der run()-Methode implementiert.
+     */
+    @Override
+    public void run() {
+      while (!Thread.currentThread().isInterrupted()) {
+        System.out.println(Thread.currentThread().getName() + " counter: " + counter++);
+      }
+      // Hier folgt z.B. Aufräum-Arbeit vor Verlassen des Runnables.
+      // Bei Verlassen der run()-Methode terminiert der Thread.
     }
+  }
 
-    public static void main(String[] args) {
-        // Das Java-Thread-Objekt repräsentiert einen System-Thread.
-        // Dem Thread wird das Runnable zur nebenläufigen Ausführung übergeben,
-        // danach wird der Thread gestartet.
-        new Thread(new MeinRunnable()).start();
-        new Thread(new MeinRunnable()).start();
+  public static void main(String[] args) throws InterruptedException {
+    // Das Java-Thread-Objekt repräsentiert einen System-Thread.
+    // Dem Thread wird das Runnable zur nebenläufigen Ausführung übergeben,
+    // danach wird der Thread gestartet.
+    Thread t1 = new Thread(new MeinRunnable());
+    t1.start();
+    Thread t2 = new Thread(new MeinRunnable());
+    t2.start();
 
-        // Ebenso möglich: Code in einem anonymen Runnable übergeben:
-        Thread thread = new Thread(new Runnable() {
+    // Ebenso möglich: Code in einem anonymen Runnable übergeben:
+    Thread thread = new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                System.out.println("Schwerarbeit leisten ...");
-            }
-        });
-        thread.start();
+      @Override
+      public void run() {
+        System.out.println("Schwerarbeit leisten ...");
+      }
+    });
+    thread.start();
 
-        // Evtl noch besser: Code in Lambda-Ausdruck übergeben:
-        Thread lambdaThread = new Thread(() -> {
-            System.out.println("Schwerarbeit leisten ...");
-        });
-        
-        // Ein "Hintergrund-Thread", wird von der JVM automatisch beendet, wenn 
-        // der Haupt-Thread beendet wird. Ansonsten versucht jeder Thread, 
-        // auch bei Beendigung der Anwendung erst einmal zum Ende 
-        // durchzulaufen(!).
-        lambdaThread.setDaemon(true);
-        lambdaThread.start();
-    }
+    // Evtl noch besser: Code in Lambda-Ausdruck übergeben:
+    Thread lambdaThread = new Thread(() -> {
+      System.out.println("Schwerarbeit leisten ...");
+    });
+
+    // Ein "Hintergrund-Thread", wird von der JVM automatisch beendet, wenn 
+    // der Haupt-Thread beendet wird. Ansonsten versucht jeder Thread, 
+    // auch bei Beendigung der Anwendung erst einmal zum Ende 
+    // durchzulaufen(!).
+    lambdaThread.setDaemon(true);
+    lambdaThread.start();
+
+    //Thread.sleep(3000);
+    Thread.currentThread().sleep(100);
+    t1.interrupt();
+    t2.interrupt();
+  }
 }

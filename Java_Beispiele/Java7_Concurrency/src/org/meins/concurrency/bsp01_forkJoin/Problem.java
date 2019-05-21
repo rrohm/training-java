@@ -24,7 +24,7 @@
  *  permits.
  *
  *
- *  2017 Aeonium Software Systems, Robert Rohm.
+ *  2019 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.concurrency.bsp01_forkJoin;
 

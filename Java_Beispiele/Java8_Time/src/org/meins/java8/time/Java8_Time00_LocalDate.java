@@ -24,7 +24,7 @@
  *  permits.
  * 
  *
- *  2017 Aeonium Software Systems, Robert Rohm.
+ *  2019 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.java8.time;
 
@@ -34,7 +34,6 @@ import java.time.ZoneId;
 import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
-import java.time.temporal.TemporalUnit;
 import java.util.Locale;
 
 /**

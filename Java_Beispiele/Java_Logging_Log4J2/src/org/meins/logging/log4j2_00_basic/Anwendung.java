@@ -24,7 +24,7 @@
  *  permits.
  *
  *
- *  2017 Aeonium Software Systems, Robert Rohm.
+ *  2019 Aeonium Software Systems, Robert Rohm.
  */
 
 package org.meins.logging.log4j2_00_basic;

@@ -24,7 +24,7 @@
  *  permits.
  *
  *
- *  2017 Aeonium Software Systems, Robert Rohm.
+ *  2019 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.nio2;
 
@@ -46,7 +46,7 @@ public class NIO2_Bsp03_TreeWalk {
    * @param args the command line arguments
    */
   public static void main(String[] args) throws IOException {
-    Path sourcePath = Paths.get("R:\\Quelle");
+    Path sourcePath = Paths.get("/tmp");
 
     FileVisitor fileVisitor = new FileVisitor() {
 

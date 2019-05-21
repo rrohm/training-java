@@ -18,7 +18,7 @@
  *  mailto:info@aeonium-systems.de
  *
  *
- *  © 2014 Aeonium Software Systems, Robert Rohm.
+ *  © 2019 Aeonium Software Systems, Robert Rohm.
  */
 
 $(document).ready(function(){

@@ -26,14 +26,17 @@ public class Java_MIDI01 {
   /**
    * @param args the command line arguments
    */
+  @SuppressWarnings("SleepWhileInLoop")
   public static void main(String[] args) {
     try {
       //
       ShortMessage message = new ShortMessage();
       message.setMessage(ShortMessage.NOTE_ON, 0, 60, 93);
       long timestamp = -1;
-      Receiver receiver = MidiSystem.getReceiver();
+//      Receiver receiver = MidiSystem.getReceiver();
       
+      Receiver receiver = MidiSystem.getMidiDevice(MidiSystem.getMidiDeviceInfo()[3]).getReceiver();
+      System.out.println("Receiver: " + receiver);
       while (true) {        
         receiver.send(message, timestamp);
         
@@ -44,10 +47,7 @@ public class Java_MIDI01 {
         }
       }
       
-    } catch (InvalidMidiDataException ex) {
-      ex.printStackTrace();
-      Logger.getLogger(Java_MIDI01.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (MidiUnavailableException ex) {
+    } catch (InvalidMidiDataException | MidiUnavailableException ex) {
       ex.printStackTrace();
       Logger.getLogger(Java_MIDI01.class.getName()).log(Level.SEVERE, null, ex);
     }

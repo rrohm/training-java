@@ -149,12 +149,14 @@ public class RewriteFilter1 implements Filter {
   /**
    * Destroy method for this filter
    */
+  @Override
   public void destroy() {    
   }
 
   /**
    * Init method for this filter
    */
+  @Override
   public void init(FilterConfig filterConfig) {    
     this.filterConfig = filterConfig;
     if (filterConfig != null) {

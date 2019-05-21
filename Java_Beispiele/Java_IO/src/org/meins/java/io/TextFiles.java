@@ -24,7 +24,7 @@
  *  permits.
  * 
  *
- *  2017 Aeonium Software Systems, Robert Rohm.
+ *  2019 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.java.io;
 
@@ -33,6 +33,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -55,6 +58,7 @@ public class TextFiles {
       // auch möglich: 
 //      f.deleteOnExit();
 
+      // a) Schreibzugriff: 
       FileWriter writer = new FileWriter(f);
       writer.write("Erste Zeile");
       writer.append(System.getProperty("line.separator"));
@@ -64,6 +68,8 @@ public class TextFiles {
       writer.flush();
       writer.close();
 
+      // b) Lesezugriff
+      // Im einfachsten Fall: Zeichen-weise - unperformant!  
       System.out.println("Zeichen-weise Lesen mit einem FileReader");
 
       FileReader reader = new FileReader(f);
@@ -72,6 +78,7 @@ public class TextFiles {
         System.out.print((char) c);
       }
 
+      // Besser: gepuffertes Lesen
       System.out.println("Zeilen-weise lesen mit einem BufferedReader");
       // Ein neuer Reader muss erstellt werden, der alte kann nicht zurückgesetzt werden:
       FileReader reader2 = new FileReader(f);
@@ -80,7 +87,7 @@ public class TextFiles {
       while ((line = bufferedReader.readLine()) != null) {
         System.out.println(line);
       }
-
+      
       reader.close();
       reader2.close();
 

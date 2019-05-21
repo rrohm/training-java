@@ -24,7 +24,7 @@
  *  permits.
  * 
  *
- *  2016 Aeonium Software Systems, Robert Rohm.
+ *  2019 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.java.audio;
 
@@ -49,6 +49,7 @@ public class Java_Audio01 {
    * Run the example.
    *
    * @param args the command line arguments
+   * @throws javax.sound.sampled.LineUnavailableException
    */
   public static void main(String[] args) throws LineUnavailableException {
 

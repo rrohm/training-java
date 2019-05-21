@@ -24,11 +24,12 @@
  *  permits.
  *
  *
- *  2017 Aeonium Software Systems, Robert Rohm.
+ *  2019 Aeonium Software Systems, Robert Rohm.
  */
 package org.meins.nio2;
 
 import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -41,15 +42,16 @@ public class NIO2_Bsp01_Paths {
   public static void main(String[] args) {
 
     // Example path, change it according to your file system.
-    Path p1 = Paths.get("D:/Programme/apache-maven-3.0.4\\bin");
-//    Path p2 = Paths.get(args[0]);
-    Path p3 = Paths.get("D:\\Programme\\apache-maven-3.0.4\\bin");//Paths.get(URI.create("file:///d/r/INST"));
-
-    Path p4 = FileSystems.getDefault().getPath("/r");
-
+    // ACHTUNG! Systemabhängiger Pfad-Trenner zu berücksichtigen!!!
+    // ... deshalb sind Pfad-Literale "ganz böse": 
+    // Path p1 = Paths.get("D:/Programme/apache-maven-3.0.4\\bin");  
+    
+    // Bessere Lösung: Pfad aus Bestandteilen zusammenfügen lassen
+    Path p1 = Paths.get("D:", "Programme", "apache-maven-3.0.4", "bin");
+    
     printInfo(p1);
-    printInfo(p3);
-    printInfo(p4);
+    
+    System.out.println("Datei existiert: " + Files.exists(p1));
   }
 
   public static void printInfo(Path path) {

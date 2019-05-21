@@ -45,7 +45,7 @@ public class Basics03_syncMitWait_3Threads {
 
   public static void main(String[] args){
     Object beliebigesLockObjekt = new Object();
-    int sleepTime = 5000;
+    int sleepTime = 50;
 
     new Thread(new MeinWaitRunnable(beliebigesLockObjekt, sleepTime)).start();
     new Thread(new MeinWaitRunnable(beliebigesLockObjekt, sleepTime)).start();
