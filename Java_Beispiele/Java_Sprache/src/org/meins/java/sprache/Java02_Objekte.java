@@ -46,9 +46,9 @@ public class Java02_Objekte {
     Object o1 = new Object();
     Object o2 = new Object();
 
-    // Die KLasse Object stellt grundlegende Funktionalität für Objekt-Typen 
+    // Die Klasse Object stellt grundlegende Funktionalität für Objekt-Typen 
     // bereit, wie z.B. Prüfen auf Gleichheit und String-Repräsentation
-    System.out.println("o1: " + o1);
+    System.out.println("o1: " + o1.toString());
     System.out.println("o2: " + o2);
     System.out.println("o1 identisch mit o2? " + (o1.equals(o2)));
     
