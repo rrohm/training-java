@@ -1,0 +1,22 @@
+Aufgabe Interfaces 01: "Konfliktlösung?"
+========================================
+
+Eine Klasse implementiert beide Interfaces: 
+
+public class KonfliktKlasse implements Interface01, Interface02{
+  public static void main(String[] args) {
+    new KonfliktKlasse().tuEtwas();
+  }
+}
+
+Die Methode tuEtwas() ist in beiden Interfaces als default-Implementierung 
+vorhanden. Der Code ist nicht übersetzungsfähig. Wie können mögliche Konflikt-
+Lösungen aussehen?
+
+
+Hinweise: 
+- Die Interfaces sind in dem Beispiel "gesetzt", ebenso wie die Anforderung, 
+  dass die Klasse beide Interfaces implementieren muss.
+
+
+

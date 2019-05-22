@@ -1,0 +1,15 @@
+Aufgabe Lambdas 01: "Gültige Lambda-Syntax?"
+============================================
+
+Welche Ausdrücke sind syntaktisch richtig?
+
+a) LongBinaryOperator op1 = (long x, Long y) -> {return x + y; }; 
+b) LongBinaryOperator op2 = (long x, long y) -> {return x + y; }; 
+c) LongBinaryOperator op3 = (long x, long y) ->  x + y;
+d) LongBinaryOperator op4 = (long x, y) ->  x + y; 
+e) LongBinaryOperator op5 = (x, y) ->  x + y;
+f) LongBinaryOperator op6 = x, y ->  x + y; 
+
+
+Tips: 
+- Vgl. dazu LongBinaryOperator-Definition!

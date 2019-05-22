@@ -1,0 +1,18 @@
+Aufgabe
+=======
+
+Personendaten sollen ausgewertet werden, gefordert ist z.B.:
+
+a) Eine Auflistung aller minderjähriger Personen 
+b) ... mit Zeitangabe, in wieviel Tagen die Person volljährig wird. 
+
+Hinweise: 
+- Die Person-Datenobjekte sollen den Geburtstag als LocalDate speichern
+- Die Ergebnisausgabe kann auch als String-Liste erfolgen, 
+   dann wäre kommaseparierte Ausgabe wünschenswert.
+
+Tipps: 
+- Ggf. mit Peek() Zwischenstände / aktuelle Daten inspizieren
+- Volljährigkeit mit Filter implementieren
+- Ggf. Tage zerlegen in Tage/Monate/Jahre
+- -> LocalDate.until()
