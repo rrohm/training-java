@@ -65,6 +65,7 @@ public class TextFiles {
       writer.write("Zweite Zeile");
       writer.append(System.getProperty("line.separator"));
       writer.write("Dritte Zeile");
+      writer.append(System.getProperty("line.separator"));
       writer.flush();
       writer.close();
 
